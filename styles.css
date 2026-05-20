@@ -23,7 +23,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Poppins", "Montserrat", Arial, Helvetica, sans-serif;
 }
 
 a {
@@ -88,15 +88,10 @@ main {
 }
 
 .brand-mark {
-  align-items: center;
-  background: var(--accent);
-  border-radius: 8px;
-  color: #fff;
-  display: inline-flex;
-  font-weight: 800;
-  height: 42px;
-  justify-content: center;
-  width: 42px;
+  display: inline-block;
+  flex: 0 0 auto;
+  height: 52px;
+  width: 52px;
 }
 
 .nav {
@@ -712,11 +707,11 @@ textarea {
 
 @media (max-width: 680px) {
   body {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   main {
-    padding: 0.75rem;
+    padding: 0.85rem;
   }
 
   .topbar {
@@ -748,33 +743,46 @@ textarea {
     border-radius: 8px;
     font-size: 0.88rem;
     justify-content: center;
-    min-height: 40px;
-    padding: 0.55rem 0.35rem;
+    min-height: 44px;
+    padding: 0.65rem 0.35rem;
     text-align: center;
+  }
+
+  button {
+    min-height: 46px;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+    min-height: 48px;
+  }
+
+  textarea {
+    min-height: 135px;
   }
 
   .controls {
     grid-template-columns: 1fr;
     margin: 0.75rem 0;
+    padding: 0.85rem;
   }
 
   .hero {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    /* Use dynamic viewport height on mobile/Android so hero fills screen */
-    height: 100dvh;
+    height: clamp(180px, 56.25vw, 310px);
     min-height: 0;
-    padding: 0;
+    margin-bottom: 0.9rem;
+    padding: 0.75rem;
   }
 
   .hero-image-wrap {
     grid-column: 1;
     grid-row: 1;
-    /* inset full so image can cover entire hero area on Android/mobile */
     position: absolute;
-    inset: 0;
-    left: 0;
-    width: 100%;
+    inset: 0.75rem;
     transform: none;
   }
 
@@ -788,15 +796,21 @@ textarea {
   .hero-panel {
     grid-column: 1;
     grid-row: 1;
-    max-width: none;
+    justify-self: end;
+    max-width: min(82vw, 360px);
     margin-bottom: 0.75rem;
     margin-left: 0.75rem;
     margin-right: 0.75rem;
-    padding: 0.65rem 0.75rem;
+    padding: 0.7rem 0.8rem;
   }
 
   .hero-panel strong {
+    font-size: 1rem;
     text-align: left;
+  }
+
+  .layout {
+    gap: 1.15rem;
   }
 
   .section-heading {
@@ -811,6 +825,19 @@ textarea {
 
   .program-card {
     box-shadow: 0 10px 24px rgba(23, 32, 51, 0.08);
+  }
+
+  .program-body {
+    gap: 0.85rem;
+    padding: 1rem;
+  }
+
+  .program-body h3 {
+    font-size: 1.15rem;
+  }
+
+  .program-meta {
+    font-size: 0.95rem;
   }
 
   .poster {
@@ -829,6 +856,7 @@ textarea {
 
   .button-row button,
   .button-row a {
+    min-height: 46px;
     width: 100%;
   }
 
@@ -844,6 +872,7 @@ textarea {
   }
 
   .news-item {
+    gap: 0.7rem;
     grid-template-columns: 44px 1fr;
     padding: 0.75rem;
   }
@@ -859,6 +888,7 @@ textarea {
   }
 
   .schedule-item {
+    gap: 0.7rem;
     grid-template-columns: 50px 1fr;
     padding: 0.7rem;
   }

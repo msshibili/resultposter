@@ -1,5 +1,5 @@
 const ADMIN_USERNAME = "admin";
-const ADMIN_PASSWORD = "admin123";
+const ADMIN_PASSWORD = "shibili123";
 const ADMIN_AUTH_KEY = "result-board-admin-auth";
 
 function uid(prefix) {

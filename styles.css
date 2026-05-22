@@ -1276,30 +1276,37 @@ textarea {
     border-radius: 8px;
   }
 
-  /* Hero adjustments for mobile */
-  /* UPDATED MOBILE STYLE */
-@media (max-width: 768px) {
+   /* Hero adjustments for mobile */
+  .hero {
+    height: 200px;
+    border-radius: 0;                    /* Flat edges for edge-to-edge look */
+    margin-left: -1rem;                  /* Bleed to left screen edge */
+    margin-right: -1rem;                 /* Bleed to right screen edge */
+    width: calc(100% + 2rem);            /* Expand image width fully */
+  }
+
   .hero-panel {
-    margin: 0.5rem;
-    max-width: 200px;                 /* Restricts the width on mobile */
-    padding: 0.35rem 0.6rem;           /* Reduces padding for mobile */
-    border-radius: 8px;
+    margin: 0.5rem;                      /* Reduced margin on mobile */
+    max-width: 200px;                    /* Fits compactly on mobile */
+    padding: 0.35rem 0.6rem;             /* Compact padding on mobile */
+    justify-self: end;                   /* Align box to the right corner on mobile */
   }
 
   .hero-panel span {
-    font-size: 0.6rem;                /* Shrinks the "Latest update" label */
+    font-size: 0.6rem;                   /* Reduced label text size on mobile only */
+    gap: 0.35rem;
   }
 
   .hero-panel span::before {
-    width: 5px;                       /* Shrinks the pulsing dot */
+    width: 5px;                          /* Smaller live dot on mobile only */
     height: 5px;
   }
 
   .hero-panel strong {
-    font-size: 0.75rem;               /* Shrinks the timestamp text */
+    font-size: 0.75rem;                  /* Reduced timestamp text size on mobile only */
     margin-top: 0.1rem;
   }
-}
+
 
 
   /* Program details adjust */

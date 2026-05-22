@@ -270,7 +270,7 @@ main {
   grid-column: 1;
   grid-row: 1;
   align-self: end;
-  justify-self: start;
+  justify-self: end;
   z-index: 2;
   margin: 1.5rem;
   background: rgba(var(--surface-rgb), 0.8);

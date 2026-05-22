@@ -1,7 +1,7 @@
-const ADMIN_USERNAME = "admin";
+const ADMIN_USERNAME = "shibili";
 const ADMIN_PASSWORD = "shibili@123";
 const EXECUTIVE_USERNAME = "executive";
-const EXECUTIVE_PASSWORD = "executive@123";
+const EXECUTIVE_PASSWORD = "exec@123";
 const AUTH_ROLE_KEY = "result-board-auth-role";
 
 function uid(prefix) {
@@ -53,6 +53,10 @@ function renderManagedLists() {
     .map((item) => `<option value="${escapeHtml(item)}">${escapeHtml(item)}</option>`)
     .join("");
 
+  document.querySelector("#scheduleCategory").innerHTML = categories
+    .map((item) => `<option value="${escapeHtml(item)}">${escapeHtml(item)}</option>`)
+    .join("");
+
   document.querySelector("#programStatus").innerHTML = statuses
     .map((item) => `<option value="${escapeHtml(item)}">${escapeHtml(item)}</option>`)
     .join("");
@@ -88,8 +92,9 @@ function addListItem(listName, value) {
 function removeListItem(listName, value) {
   value = decodeURIComponent(value);
   const data = getData();
-  const inUse = data.programs.some((program) => program.category === value || program.status === value);
-  if (inUse && !confirm("This item is used by existing programs. Remove it from the list anyway?")) return;
+  const inUse = data.programs.some((program) => program.category === value || program.status === value) ||
+                data.schedules.some((schedule) => schedule.category === value);
+  if (inUse && !confirm("This item is used by existing programs or schedules. Remove it from the list anyway?")) return;
 
   data.settings[listName] = (data.settings[listName] || []).filter((item) => item !== value);
   saveData(data);
@@ -216,7 +221,7 @@ function renderAdminSchedules() {
       <article class="admin-item">
         <div class="admin-item-info">
           <h3>${escapeHtml(schedule.title)}</h3>
-          <p>${escapeHtml(formatDate(schedule.date))} | ${escapeHtml(formatTime(schedule.time))} | ${escapeHtml(schedule.venue)}</p>
+          <p>${escapeHtml(schedule.category || "General")} | ${escapeHtml(formatDate(schedule.date))} | ${escapeHtml(formatTime(schedule.time))} | ${escapeHtml(schedule.venue)}</p>
         </div>
         <div class="button-row">
           <button type="button" onclick="editSchedule('${schedule.id}')">Edit</button>
@@ -233,6 +238,7 @@ function editSchedule(scheduleId) {
 
   document.querySelector("#scheduleId").value = schedule.id;
   document.querySelector("#scheduleTitle").value = schedule.title || "";
+  document.querySelector("#scheduleCategory").value = schedule.category || "";
   document.querySelector("#scheduleDate").value = schedule.date || "";
   document.querySelector("#scheduleTime").value = schedule.time || "";
   document.querySelector("#scheduleVenue").value = schedule.venue || "";
@@ -401,6 +407,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const schedule = {
       id,
       title: document.querySelector("#scheduleTitle").value.trim(),
+      category: document.querySelector("#scheduleCategory").value,
       date: document.querySelector("#scheduleDate").value,
       time: document.querySelector("#scheduleTime").value,
       venue: document.querySelector("#scheduleVenue").value.trim()

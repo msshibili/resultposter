@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sahityolsav Results 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="Result Board home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>
+          <strong>Sahityolsav Results 2026</strong>
+          <small>Live programs and posters</small>
+        </span>
+      </a>
+      <nav class="nav">
+        <a href="#results" class="active">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34"/><path d="M12 2a6 6 0 0 1 6 6c0 3.23-2 6-5 6.82V14H11v-.18C8 13 6 10.23 6 8a6 6 0 0 1 6-6z"/></svg>
+          <span>Results</span>
+        </a>
+        <a href="#news">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon"><path d="m3 11 18-5v12L3 13v-2Z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+          <span>News</span>
+        </a>
+        <a href="#schedules">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
+          <span>Schedules</span>
+        </a>
+        <a class="admin-link" href="admin.html">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+          <span>Admin</span>
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-panel">
+          <span>Latest update</span>
+          <strong id="lastUpdated">Loading...</strong>
+        </div>
+        <div class="hero-image-wrap">
+          <img id="heroImage" class="hero-image" onerror="handlePosterImageError(this)" alt="Result Board update banner" hidden>
+        </div>
+      </section>
+<br></br>
+      <section class="controls" aria-label="Search and filters">
+        <label class="search-box">
+          <span>Search</span>
+          <input id="searchInput" type="search" placeholder="Search by Program Name / Result / Venue">
+        </label>
+        <label>
+          <span>Category</span>
+          <select id="categoryFilter">
+            <option value="all">All categories</option>
+          </select>
+        </label>
+        <label>
+          <span>Status</span>
+          <select id="statusFilter">
+            <option value="all">All statuses</option>
+            <option value="Published">Published</option>
+            <option value="Upcoming">Upcoming</option>
+            <option value="Review">Review</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="layout">
+        <div>
+          <div class="section-heading" id="results">
+            <div>
+              <p class="eyebrow">Result posters</p>
+              <h2>Program List</h2>
+            </div>
+            <p id="resultCount">0 programs</p>
+          </div>
+          <div id="programGrid" class="program-grid" aria-live="polite"></div>
+        </div>
+
+        <aside class="side-column">
+          <section class="panel" id="news">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Latest Updates</p>
+                <h2>News Corner</h2>
+              </div>
+              <div class="slider-controls">
+                <button type="button" class="slider-arrow prev" id="newsPrev" aria-label="Previous News">&larr;</button>
+                <button type="button" class="slider-arrow next" id="newsNext" aria-label="Next News">&rarr;</button>
+              </div>
+            </div>
+            <div class="news-slider-viewport">
+              <div id="newsList" class="news-list slider-track"></div>
+            </div>
+          </section>
+
+          <section class="panel" id="schedules">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">programs</p>
+                <h2>Schedules</h2>
+              </div>
+            </div>
+            <div id="scheduleList" class="schedule-list"></div>
+          </section>
+        </aside>
+      </section>
+    </main>
+
+    <dialog id="posterDialog" class="poster-dialog">
+      <button class="icon-button dialog-close" id="closeDialog" type="button" aria-label="Close">x</button>
+      <div id="dialogPoster"></div>
+    </dialog>
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

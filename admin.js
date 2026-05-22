@@ -1,7 +1,7 @@
-const ADMIN_USERNAME = "admin";
+const ADMIN_USERNAME = "shibili";
 const ADMIN_PASSWORD = "shibili@123";
 const EXECUTIVE_USERNAME = "executive";
-const EXECUTIVE_PASSWORD = "executive@123";
+const EXECUTIVE_PASSWORD = "exec@123";
 const AUTH_ROLE_KEY = "result-board-auth-role";
 
 function uid(prefix) {

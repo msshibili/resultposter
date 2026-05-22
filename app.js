@@ -57,6 +57,7 @@ const sampleData = {
     {
       id: "s1",
       title: "Prize Distribution",
+      category: "General",
       date: "2026-05-18",
       time: "17:00",
       venue: "Auditorium"
@@ -64,6 +65,7 @@ const sampleData = {
     {
       id: "s2",
       title: "Cultural Night",
+      category: "General",
       date: "2026-05-19",
       time: "18:30",
       venue: "Open Stage"
@@ -459,7 +461,7 @@ function renderPublicSite() {
         </div>
         <div class="schedule-content">
           <h3>${escapeHtml(item.title)}</h3>
-          <span class="schedule-meta">${escapeHtml(formatTime(item.time))}</span>
+          <span class="schedule-meta">${escapeHtml(item.category || "General")} | ${escapeHtml(formatTime(item.time))}</span>
           <span class="schedule-place">${escapeHtml(item.venue)}</span>
         </div>
       </article>
